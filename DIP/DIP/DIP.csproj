@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D618DA2-02FD-482D-807D-B1C896BB37C9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DIP</RootNamespace>
+    <AssemblyName>DIP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LooseCoupling\Fakes\FakeNotificationService.cs" />
+    <Compile Include="LooseCoupling\Fakes\FakePaymentProcessor.cs" />
+    <Compile Include="LooseCoupling\Fakes\FakeReservationService.cs" />
+    <Compile Include="LooseCoupling\Interfaces\INotificationService.cs" />
+    <Compile Include="LooseCoupling\Interfaces\IPaymentProcessor.cs" />
+    <Compile Include="LooseCoupling\Interfaces\IReservationService.cs" />
+    <Compile Include="LooseCoupling\Model\Cart.cs" />
+    <Compile Include="LooseCoupling\Model\OnlineOrder.cs" />
+    <Compile Include="LooseCoupling\Model\Order.cs" />
+    <Compile Include="LooseCoupling\Model\PaymentDetails.cs" />
+    <Compile Include="LooseCoupling\OnlineOrderCheckoutShould.cs" />
+    <Compile Include="LooseCoupling\Services\NotificationService.cs" />
+    <Compile Include="LooseCoupling\Services\PaymentProcessor.cs" />
+    <Compile Include="LooseCoupling\Services\ReservationService.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TightCoupling\Model\Cart.cs" />
+    <Compile Include="TightCoupling\Model\Order.cs" />
+    <Compile Include="TightCoupling\Model\PaymentDetails.cs" />
+    <Compile Include="TightCoupling\OrderCheckoutShould.cs" />
+    <Compile Include="TightCoupling\Services\InventorySystem.cs" />
+    <Compile Include="TightCoupling\Services\PaymentGateway.cs" />
+    <Compile Include="Utility\Logger.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
