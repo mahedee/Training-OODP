@@ -8,12 +8,15 @@ namespace ISP.Violation
 {
     public interface IReportBAL
     {
+        //For Employee
         void GeneratePFReport();
         void GenerateESICReport();
 
+        //Manager = Employee + Own
         void GenerateResourcePerformanceReport();
         void GenerateProjectSchedule();
 
+        //Admin = Employee + Manager + Own
         void GenerateProfitReport();
     }
     public class ReportBAL : IReportBAL

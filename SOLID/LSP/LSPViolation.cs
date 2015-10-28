@@ -7,53 +7,16 @@ using System.Threading.Tasks;
 
 namespace LSP.Violation
 {
-    [TestClass]
-    public class CalculateAreaTest
-    {
-        [TestMethod]
-        public void SixFor2x3Rectange()
-        {
-            var myRectangle = new Rectangle { Height = 2, Width = 3 };
-            Assert.AreEqual(6, AreaCalculator.CalculateArea(myRectangle));
-        }
-
-        [TestMethod]
-        public void NineFor3x3Squre()
-        {
-            var squre = new Squre { Height = 3 };
-            Assert.AreEqual(9, AreaCalculator.CalculateArea(squre));
-        }
-
-        [TestMethod]
-        public void TwentyFor4x5Squre()
-        {
-            //Failed means not substitutable
-            var rectangle = new Squre();
-            rectangle.Height = 4;
-            rectangle.Width = 5;
-            Assert.AreEqual(20, AreaCalculator.CalculateArea(rectangle));
-
-        }
-
-
-    }
-
-
-
-
-
-    /// <summary>
-    /// 
-    /// </summary>
+   /// <summary>
+   /// 
+   /// </summary>
     public class Rectangle
     {
         public virtual int Height { get; set; }
         public virtual int Width { get; set; }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
+   
     public class Squre : Rectangle
     {
         private int _height;
@@ -101,6 +64,35 @@ namespace LSP.Violation
             return rectagle.Height * rectagle.Width;
         }
 
+    }
+
+    [TestClass]
+    public class CalculateAreaTest
+    {
+        [TestMethod]
+        public void SixFor2x3Rectange()
+        {
+            var myRectangle = new Rectangle { Height = 2, Width = 3 };
+            Assert.AreEqual(6, AreaCalculator.CalculateArea(myRectangle));
+        }
+
+        [TestMethod]
+        public void NineFor3x3Squre()
+        {
+            var squre = new Squre { Height = 3 };
+            Assert.AreEqual(9, AreaCalculator.CalculateArea(squre));
+        }
+
+        [TestMethod]
+        public void TwentyFor4x5Squre()
+        {
+            //Failed means not substitutable
+            var rectangle = new Squre();
+            rectangle.Height = 4;
+            rectangle.Width = 5;
+            Assert.AreEqual(20, AreaCalculator.CalculateArea(rectangle));
+
+        }
     }
 
 }
