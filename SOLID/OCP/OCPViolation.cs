@@ -47,8 +47,6 @@ namespace OCP.Violation
             return 1 / 2.0 * Base * Height;
         }
     }
-
-
     public class Circle
     {
         public double Radius { get; set; }
